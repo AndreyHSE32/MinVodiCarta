@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_94eff8311261bf094088da0e8fcd924f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+<div style='position: fixed; bottom: 30px; left: 10px;
+z-index:9999; background-color: rgba(255,255,255,0.95);
+border:2px solid #555; padding:10px; width:240px; font-size:14px;
+border-radius:6px;'>
+<h4 style="margin:0 0 6px 0">Туристическая карта</h4>
+<span style="background:#8B0000;width:12px;height:12px;display:inline-block;margin-right:8px;"></span> Достопримечательности<br>
+<span style="background:#FF8C00;width:12px;height:12px;display:inline-block;margin-right:8px;"></span> Кафе и рестораны<br>
+<span style="background:#00008B;width:12px;height:12px;display:inline-block;margin-right:8px;"></span> Отели<br>
+<span style="background:#5F9EA0;width:12px;height:12px;display:inline-block;margin-right:8px;"></span> Транспорт<br>
+<hr style="margin:8px 0;">
+<small>Минеральные Воды © 2025</small>
+</div>
+    
+            <div class="folium-map" id="map_94eff8311261bf094088da0e8fcd924f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_94eff8311261bf094088da0e8fcd924f = L.map(
+                "map_94eff8311261bf094088da0e8fcd924f",
+                {
+                    center: [44.2167, 43.1333],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_94eff8311261bf094088da0e8fcd924f);
+
+            
+
+        
+    
+            var tile_layer_bc11cb55f2f9dd2d514e70f8b7998193 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bc11cb55f2f9dd2d514e70f8b7998193.addTo(map_94eff8311261bf094088da0e8fcd924f);
+        
+    
+            var tile_layer_a9ad795b209cd222cd2d8da02a7d06b1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a9ad795b209cd222cd2d8da02a7d06b1.addTo(map_94eff8311261bf094088da0e8fcd924f);
+        
+    
+            var tile_layer_06ed7c9fc2ef4eb0823add879722fd45 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_9999ebc704272c6f7b94606be54b5291 = new L.Control.MiniMap(
+                tile_layer_06ed7c9fc2ef4eb0823add879722fd45,
+                {
+  "position": "bottomright",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": true,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_94eff8311261bf094088da0e8fcd924f.addControl(mini_map_9999ebc704272c6f7b94606be54b5291);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_94eff8311261bf094088da0e8fcd924f);
+        
+    
+            var mouse_position_07241a65afaddf282f010383b163a2c8 = new L.Control.MousePosition(
+                {
+  "position": "bottomright",
+  "separator": " : ",
+  "emptyString": "Unavailable",
+  "lngFirst": false,
+  "numDigits": 5,
+  "prefix": "\u041a\u043e\u043e\u0440\u0434:",
+}
+            );
+            mouse_position_07241a65afaddf282f010383b163a2c8.options["latFormatter"] =
+                undefined;
+            mouse_position_07241a65afaddf282f010383b163a2c8.options["lngFormatter"] =
+                undefined;
+            map_94eff8311261bf094088da0e8fcd924f.addControl(mouse_position_07241a65afaddf282f010383b163a2c8);
+        
+    
+            var feature_group_191a770c3bf7bf702a0fb354e909ddc9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_5ac4e386beeedcf9c3332321af413940 = L.markerClusterGroup(
+                {
+}
+            );
+            marker_cluster_5ac4e386beeedcf9c3332321af413940.options.iconCreateFunction =
+                function(cluster) {
+           return new L.DivIcon({
+               html: '<div style="background-color:#8B0000;'
+                     + 'color:white;border-radius:50%;'
+                     + 'width:40px;height:40px;'
+                     + 'display:flex;align-items:center;justify-content:center;'
+                     + 'font-weight:bold;border:2px solid white;">'
+                     + cluster.getChildCount() + '</div>',
+               className: 'marker-cluster'
+           });
+       };
+        
+    
+            var marker_8a66fe99ceaea0abdf589b78149fffa7 = L.marker(
+                [44.169306, 43.098203],
+                {
+}
+            ).addTo(marker_cluster_5ac4e386beeedcf9c3332321af413940);
+        
+    
+            var icon_223127480a851adcbb72bc726f20d60f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_247bda64ebcaab2fbf0190bd44d19c0f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a9d2f8d3031dff9391a27cc1f844b54 = $(`<div id="html_6a9d2f8d3031dff9391a27cc1f844b54" style="width: 100.0%; height: 100.0%;"><b>Гора Змейка</b><br>Маршрут для любителей природы</div>`)[0];
+                popup_247bda64ebcaab2fbf0190bd44d19c0f.setContent(html_6a9d2f8d3031dff9391a27cc1f844b54);
+            
+        
+
+        marker_8a66fe99ceaea0abdf589b78149fffa7.bindPopup(popup_247bda64ebcaab2fbf0190bd44d19c0f)
+        ;
+
+        
+    
+    
+            marker_8a66fe99ceaea0abdf589b78149fffa7.bindTooltip(
+                `<div>
+                     Гора Змейка
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8a66fe99ceaea0abdf589b78149fffa7.setIcon(icon_223127480a851adcbb72bc726f20d60f);
+            
+    
+            var marker_a866cd498b065b9f13fb9b9dbe500c3d = L.marker(
+                [44.212209, 43.140721],
+                {
+}
+            ).addTo(marker_cluster_5ac4e386beeedcf9c3332321af413940);
+        
+    
+            var icon_17417cd72b8c75d340d12ab4b583186f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4d2ff7ae13a28f89a5c8838418dfdd91 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0fec55efe4e917b0f56e4d92b326f31f = $(`<div id="html_0fec55efe4e917b0f56e4d92b326f31f" style="width: 100.0%; height: 100.0%;"><b>Привокзальная площадь</b><br>Площадь у железнодорожного вокзала</div>`)[0];
+                popup_4d2ff7ae13a28f89a5c8838418dfdd91.setContent(html_0fec55efe4e917b0f56e4d92b326f31f);
+            
+        
+
+        marker_a866cd498b065b9f13fb9b9dbe500c3d.bindPopup(popup_4d2ff7ae13a28f89a5c8838418dfdd91)
+        ;
+
+        
+    
+    
+            marker_a866cd498b065b9f13fb9b9dbe500c3d.bindTooltip(
+                `<div>
+                     Привокзальная площадь
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a866cd498b065b9f13fb9b9dbe500c3d.setIcon(icon_17417cd72b8c75d340d12ab4b583186f);
+            
+    
+            var marker_2f08f7b1b5aeda329374b74c6cf3eca2 = L.marker(
+                [44.201252, 43.11669],
+                {
+}
+            ).addTo(marker_cluster_5ac4e386beeedcf9c3332321af413940);
+        
+    
+            var icon_565bcc149b2254eaba7d9bfd7f059425 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c86eed8ed8d82ea9e0bae2d095ecd2bf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d748abe4f1bd49f81866f0c4858ba841 = $(`<div id="html_d748abe4f1bd49f81866f0c4858ba841" style="width: 100.0%; height: 100.0%;"><b>Площадь Победы</b><br>Мемориальная площадь</div>`)[0];
+                popup_c86eed8ed8d82ea9e0bae2d095ecd2bf.setContent(html_d748abe4f1bd49f81866f0c4858ba841);
+            
+        
+
+        marker_2f08f7b1b5aeda329374b74c6cf3eca2.bindPopup(popup_c86eed8ed8d82ea9e0bae2d095ecd2bf)
+        ;
+
+        
+    
+    
+            marker_2f08f7b1b5aeda329374b74c6cf3eca2.bindTooltip(
+                `<div>
+                     Площадь Победы
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2f08f7b1b5aeda329374b74c6cf3eca2.setIcon(icon_565bcc149b2254eaba7d9bfd7f059425);
+            
+    
+            var marker_aedc897fdfd74365ec696d1b3b6dd7c0 = L.marker(
+                [44.201879, 43.125393],
+                {
+}
+            ).addTo(marker_cluster_5ac4e386beeedcf9c3332321af413940);
+        
+    
+            var icon_9c90658f3489b60ba81bdb8c4997abbf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f0aeaa4a998d52ed6698219404fb5a30 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e4250ec2bd876e79568bbc7ae6097be1 = $(`<div id="html_e4250ec2bd876e79568bbc7ae6097be1" style="width: 100.0%; height: 100.0%;"><b>Собор Покрова Пресвятой Богородицы</b><br>Православный храм</div>`)[0];
+                popup_f0aeaa4a998d52ed6698219404fb5a30.setContent(html_e4250ec2bd876e79568bbc7ae6097be1);
+            
+        
+
+        marker_aedc897fdfd74365ec696d1b3b6dd7c0.bindPopup(popup_f0aeaa4a998d52ed6698219404fb5a30)
+        ;
+
+        
+    
+    
+            marker_aedc897fdfd74365ec696d1b3b6dd7c0.bindTooltip(
+                `<div>
+                     Собор Покрова Пресвятой Богородицы
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aedc897fdfd74365ec696d1b3b6dd7c0.setIcon(icon_9c90658f3489b60ba81bdb8c4997abbf);
+            
+    
+            var marker_ab4789b7486c29e4527b5e032e075c19 = L.marker(
+                [44.210135, 43.130943],
+                {
+}
+            ).addTo(marker_cluster_5ac4e386beeedcf9c3332321af413940);
+        
+    
+            var icon_573ccbe0a41c0e34cc1bf0c7b1dfeb7c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_52d223fbce34ecbf9726bca4f0a276b7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_37c1f909d2773678d62074801a122177 = $(`<div id="html_37c1f909d2773678d62074801a122177" style="width: 100.0%; height: 100.0%;"><b>Городской парк культуры и отдыха</b><br>Место для прогулок и отдыха</div>`)[0];
+                popup_52d223fbce34ecbf9726bca4f0a276b7.setContent(html_37c1f909d2773678d62074801a122177);
+            
+        
+
+        marker_ab4789b7486c29e4527b5e032e075c19.bindPopup(popup_52d223fbce34ecbf9726bca4f0a276b7)
+        ;
+
+        
+    
+    
+            marker_ab4789b7486c29e4527b5e032e075c19.bindTooltip(
+                `<div>
+                     Городской парк культуры и отдыха
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ab4789b7486c29e4527b5e032e075c19.setIcon(icon_573ccbe0a41c0e34cc1bf0c7b1dfeb7c);
+            
+    
+            var marker_240a9c0aac7e63d5efec77cb5fde67dd = L.marker(
+                [44.201032, 43.12473],
+                {
+}
+            ).addTo(marker_cluster_5ac4e386beeedcf9c3332321af413940);
+        
+    
+            var icon_4a2e12c98bfbfbc5bda4963be66dd2c1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1065410ae2c34f604feae7184a3429da = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f8126825c208de850697dce08c9fa551 = $(`<div id="html_f8126825c208de850697dce08c9fa551" style="width: 100.0%; height: 100.0%;"><b>Музей Морской и Воинской Славы</b><br>Военно-исторический музей</div>`)[0];
+                popup_1065410ae2c34f604feae7184a3429da.setContent(html_f8126825c208de850697dce08c9fa551);
+            
+        
+
+        marker_240a9c0aac7e63d5efec77cb5fde67dd.bindPopup(popup_1065410ae2c34f604feae7184a3429da)
+        ;
+
+        
+    
+    
+            marker_240a9c0aac7e63d5efec77cb5fde67dd.bindTooltip(
+                `<div>
+                     Музей Морской и Воинской Славы
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_240a9c0aac7e63d5efec77cb5fde67dd.setIcon(icon_4a2e12c98bfbfbc5bda4963be66dd2c1);
+            
+    
+            var marker_441212d37150e98d0a81173f8a11fddd = L.marker(
+                [44.209597, 43.136186],
+                {
+}
+            ).addTo(marker_cluster_5ac4e386beeedcf9c3332321af413940);
+        
+    
+            var icon_9bcc514e6a56575d122b31555725672e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dfa3bfb51221308d314ff7ed3aa9a07f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34cf65e3ed62023c8ca6874f5c509180 = $(`<div id="html_34cf65e3ed62023c8ca6874f5c509180" style="width: 100.0%; height: 100.0%;"><b>Аллея на проспекте им. Карла Маркса</b><br>Прогулочная аллея</div>`)[0];
+                popup_dfa3bfb51221308d314ff7ed3aa9a07f.setContent(html_34cf65e3ed62023c8ca6874f5c509180);
+            
+        
+
+        marker_441212d37150e98d0a81173f8a11fddd.bindPopup(popup_dfa3bfb51221308d314ff7ed3aa9a07f)
+        ;
+
+        
+    
+    
+            marker_441212d37150e98d0a81173f8a11fddd.bindTooltip(
+                `<div>
+                     Аллея на проспекте им. Карла Маркса
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_441212d37150e98d0a81173f8a11fddd.setIcon(icon_9bcc514e6a56575d122b31555725672e);
+            
+    
+            var marker_2ece67db5b593ca4f8bd7f2487bfaecc = L.marker(
+                [44.202551, 43.121604],
+                {
+}
+            ).addTo(marker_cluster_5ac4e386beeedcf9c3332321af413940);
+        
+    
+            var icon_3f5219d27e4762721d432d4c86354c14 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_561eacc8c146956383b267c38a457c17 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4dfac99c20eac6e6800e42d8dc37b72f = $(`<div id="html_4dfac99c20eac6e6800e42d8dc37b72f" style="width: 100.0%; height: 100.0%;"><b>Музей писателя А. П. Бибика (Минераловодский краеведческий музей)</b><br>Краеведческий музей</div>`)[0];
+                popup_561eacc8c146956383b267c38a457c17.setContent(html_4dfac99c20eac6e6800e42d8dc37b72f);
+            
+        
+
+        marker_2ece67db5b593ca4f8bd7f2487bfaecc.bindPopup(popup_561eacc8c146956383b267c38a457c17)
+        ;
+
+        
+    
+    
+            marker_2ece67db5b593ca4f8bd7f2487bfaecc.bindTooltip(
+                `<div>
+                     Музей писателя А. П. Бибика (Минераловодский краеведческий музей)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2ece67db5b593ca4f8bd7f2487bfaecc.setIcon(icon_3f5219d27e4762721d432d4c86354c14);
+            
+    
+            var marker_77d1fa8110e793bde0b9376c5b338103 = L.marker(
+                [44.166255, 43.109945],
+                {
+}
+            ).addTo(marker_cluster_5ac4e386beeedcf9c3332321af413940);
+        
+    
+            var icon_f905368412605cbcb56e44b8fdcf3bcc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ff0c674b2ff6de19da95965e2ea16e0a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca13cbf37b6540f12c1852679bb25d92 = $(`<div id="html_ca13cbf37b6540f12c1852679bb25d92" style="width: 100.0%; height: 100.0%;"><b>Святой источник Архангела Михаила</b><br>Православный святой источник</div>`)[0];
+                popup_ff0c674b2ff6de19da95965e2ea16e0a.setContent(html_ca13cbf37b6540f12c1852679bb25d92);
+            
+        
+
+        marker_77d1fa8110e793bde0b9376c5b338103.bindPopup(popup_ff0c674b2ff6de19da95965e2ea16e0a)
+        ;
+
+        
+    
+    
+            marker_77d1fa8110e793bde0b9376c5b338103.bindTooltip(
+                `<div>
+                     Святой источник Архангела Михаила
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_77d1fa8110e793bde0b9376c5b338103.setIcon(icon_f905368412605cbcb56e44b8fdcf3bcc);
+            
+    
+            var marker_fbc4ab0407f5a0274dbe53e0db42ccaa = L.marker(
+                [44.144568, 43.087598],
+                {
+}
+            ).addTo(marker_cluster_5ac4e386beeedcf9c3332321af413940);
+        
+    
+            var icon_a650b16c1ff7a115a973c8b7ca7bd0e3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_516fbb72f9d03ec20c213cb5072a3d1a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5bc8797933688543fbc9ecd23c8cf76f = $(`<div id="html_5bc8797933688543fbc9ecd23c8cf76f" style="width: 100.0%; height: 100.0%;"><b>Терский Конный Завод</b><br>Конный завод</div>`)[0];
+                popup_516fbb72f9d03ec20c213cb5072a3d1a.setContent(html_5bc8797933688543fbc9ecd23c8cf76f);
+            
+        
+
+        marker_fbc4ab0407f5a0274dbe53e0db42ccaa.bindPopup(popup_516fbb72f9d03ec20c213cb5072a3d1a)
+        ;
+
+        
+    
+    
+            marker_fbc4ab0407f5a0274dbe53e0db42ccaa.bindTooltip(
+                `<div>
+                     Терский Конный Завод
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fbc4ab0407f5a0274dbe53e0db42ccaa.setIcon(icon_a650b16c1ff7a115a973c8b7ca7bd0e3);
+            
+    
+            marker_cluster_5ac4e386beeedcf9c3332321af413940.addTo(feature_group_191a770c3bf7bf702a0fb354e909ddc9);
+        
+    
+            feature_group_191a770c3bf7bf702a0fb354e909ddc9.addTo(map_94eff8311261bf094088da0e8fcd924f);
+        
+    
+            var feature_group_04639cc63b0847362a7282ba7b42695b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_ce9d70014002ece33fdd42e13566f931 = L.markerClusterGroup(
+                {
+}
+            );
+            marker_cluster_ce9d70014002ece33fdd42e13566f931.options.iconCreateFunction =
+                function(cluster) {
+           return new L.DivIcon({
+               html: '<div style="background-color:#FF8C00;'
+                     + 'color:white;border-radius:50%;'
+                     + 'width:40px;height:40px;'
+                     + 'display:flex;align-items:center;justify-content:center;'
+                     + 'font-weight:bold;border:2px solid white;">'
+                     + cluster.getChildCount() + '</div>',
+               className: 'marker-cluster'
+           });
+       };
+        
+    
+            var marker_b23c10ae41babe8bd4ce48bb633f5595 = L.marker(
+                [44.211416, 43.140055],
+                {
+}
+            ).addTo(marker_cluster_ce9d70014002ece33fdd42e13566f931);
+        
+    
+            var icon_304fb53129669134f22d9eba27554d38 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4ddb89a98755d991a8e8808029ab6f05 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3d81db9926573dcc349ff090d5d859ec = $(`<div id="html_3d81db9926573dcc349ff090d5d859ec" style="width: 100.0%; height: 100.0%;"><b>Уголь</b><br>Рейтинг: 4.0</div>`)[0];
+                popup_4ddb89a98755d991a8e8808029ab6f05.setContent(html_3d81db9926573dcc349ff090d5d859ec);
+            
+        
+
+        marker_b23c10ae41babe8bd4ce48bb633f5595.bindPopup(popup_4ddb89a98755d991a8e8808029ab6f05)
+        ;
+
+        
+    
+    
+            marker_b23c10ae41babe8bd4ce48bb633f5595.bindTooltip(
+                `<div>
+                     Уголь
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b23c10ae41babe8bd4ce48bb633f5595.setIcon(icon_304fb53129669134f22d9eba27554d38);
+            
+    
+            var marker_da63977f5c263d2302f0e72ef3923fdf = L.marker(
+                [44.198499, 43.123392],
+                {
+}
+            ).addTo(marker_cluster_ce9d70014002ece33fdd42e13566f931);
+        
+    
+            var icon_af387ef51fc0b91e0b548f5d9eb0bb40 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2f775e1e25e71537579ebdf90ff57bd2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e08ea1a2068407b51523dc232dbd89c = $(`<div id="html_8e08ea1a2068407b51523dc232dbd89c" style="width: 100.0%; height: 100.0%;"><b>Roma</b><br>Рейтинг: 4.0</div>`)[0];
+                popup_2f775e1e25e71537579ebdf90ff57bd2.setContent(html_8e08ea1a2068407b51523dc232dbd89c);
+            
+        
+
+        marker_da63977f5c263d2302f0e72ef3923fdf.bindPopup(popup_2f775e1e25e71537579ebdf90ff57bd2)
+        ;
+
+        
+    
+    
+            marker_da63977f5c263d2302f0e72ef3923fdf.bindTooltip(
+                `<div>
+                     Roma
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_da63977f5c263d2302f0e72ef3923fdf.setIcon(icon_af387ef51fc0b91e0b548f5d9eb0bb40);
+            
+    
+            var marker_7244a715ae2c03ad77859143ff89e0e9 = L.marker(
+                [44.199778, 43.133893],
+                {
+}
+            ).addTo(marker_cluster_ce9d70014002ece33fdd42e13566f931);
+        
+    
+            var icon_d58831bd9be2b2fd08e16eb58da2c038 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c2304344ed4208e7f806b69692f6394c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1eca11373dbb47f9cc257b3a58e099c = $(`<div id="html_e1eca11373dbb47f9cc257b3a58e099c" style="width: 100.0%; height: 100.0%;"><b>Сикварули</b><br>Рейтинг: 4.0</div>`)[0];
+                popup_c2304344ed4208e7f806b69692f6394c.setContent(html_e1eca11373dbb47f9cc257b3a58e099c);
+            
+        
+
+        marker_7244a715ae2c03ad77859143ff89e0e9.bindPopup(popup_c2304344ed4208e7f806b69692f6394c)
+        ;
+
+        
+    
+    
+            marker_7244a715ae2c03ad77859143ff89e0e9.bindTooltip(
+                `<div>
+                     Сикварули
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7244a715ae2c03ad77859143ff89e0e9.setIcon(icon_d58831bd9be2b2fd08e16eb58da2c038);
+            
+    
+            var marker_5a6970085268a75e80cc311d11347c77 = L.marker(
+                [44.204496, 43.10609],
+                {
+}
+            ).addTo(marker_cluster_ce9d70014002ece33fdd42e13566f931);
+        
+    
+            var icon_2d1b0e83d7695ba4540feaf4cfee5132 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2b7062ba9898bf9078daa126ff168973 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_22f360a3fb3f451bfc993e3d93c9679b = $(`<div id="html_22f360a3fb3f451bfc993e3d93c9679b" style="width: 100.0%; height: 100.0%;"><b>У Ламары</b><br>Рейтинг: 4.0</div>`)[0];
+                popup_2b7062ba9898bf9078daa126ff168973.setContent(html_22f360a3fb3f451bfc993e3d93c9679b);
+            
+        
+
+        marker_5a6970085268a75e80cc311d11347c77.bindPopup(popup_2b7062ba9898bf9078daa126ff168973)
+        ;
+
+        
+    
+    
+            marker_5a6970085268a75e80cc311d11347c77.bindTooltip(
+                `<div>
+                     У Ламары
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5a6970085268a75e80cc311d11347c77.setIcon(icon_2d1b0e83d7695ba4540feaf4cfee5132);
+            
+    
+            var marker_e8d609547d789e227219a77e767dd97e = L.marker(
+                [44.202279, 43.134549],
+                {
+}
+            ).addTo(marker_cluster_ce9d70014002ece33fdd42e13566f931);
+        
+    
+            var icon_f463c843132dc6a3395aee2543e04e43 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_463b2a610efb98dd9b9783b2f2c24f8b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_70a92f4efc6b323acebb24456e158b54 = $(`<div id="html_70a92f4efc6b323acebb24456e158b54" style="width: 100.0%; height: 100.0%;"><b>Палермо</b><br>Рейтинг: 4.0</div>`)[0];
+                popup_463b2a610efb98dd9b9783b2f2c24f8b.setContent(html_70a92f4efc6b323acebb24456e158b54);
+            
+        
+
+        marker_e8d609547d789e227219a77e767dd97e.bindPopup(popup_463b2a610efb98dd9b9783b2f2c24f8b)
+        ;
+
+        
+    
+    
+            marker_e8d609547d789e227219a77e767dd97e.bindTooltip(
+                `<div>
+                     Палермо
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e8d609547d789e227219a77e767dd97e.setIcon(icon_f463c843132dc6a3395aee2543e04e43);
+            
+    
+            var marker_b39d7671bc03275aa73f95bff5ecd92a = L.marker(
+                [44.207475, 43.137091],
+                {
+}
+            ).addTo(marker_cluster_ce9d70014002ece33fdd42e13566f931);
+        
+    
+            var icon_ed0b3fbbe3a4f660fd20939df6dca99d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7bef0ab1dfc913e02dd6f70cbeb18479 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_87cbf3f1ccb097a7ce217ff0a35fb039 = $(`<div id="html_87cbf3f1ccb097a7ce217ff0a35fb039" style="width: 100.0%; height: 100.0%;"><b>Coffee sounds</b><br>Рейтинг: 4.0</div>`)[0];
+                popup_7bef0ab1dfc913e02dd6f70cbeb18479.setContent(html_87cbf3f1ccb097a7ce217ff0a35fb039);
+            
+        
+
+        marker_b39d7671bc03275aa73f95bff5ecd92a.bindPopup(popup_7bef0ab1dfc913e02dd6f70cbeb18479)
+        ;
+
+        
+    
+    
+            marker_b39d7671bc03275aa73f95bff5ecd92a.bindTooltip(
+                `<div>
+                     Coffee sounds
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b39d7671bc03275aa73f95bff5ecd92a.setIcon(icon_ed0b3fbbe3a4f660fd20939df6dca99d);
+            
+    
+            var marker_5d160324bf3e5437f271ed607e9aa313 = L.marker(
+                [44.211503, 43.139553],
+                {
+}
+            ).addTo(marker_cluster_ce9d70014002ece33fdd42e13566f931);
+        
+    
+            var icon_e11b35f867b3565c35b91e195fad963e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c5ce38efdd5062359e9e0020292e1c06 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01bbe89d7524eb81194396b4547de26f = $(`<div id="html_01bbe89d7524eb81194396b4547de26f" style="width: 100.0%; height: 100.0%;"><b>Гиро</b><br>Рейтинг: 4.0</div>`)[0];
+                popup_c5ce38efdd5062359e9e0020292e1c06.setContent(html_01bbe89d7524eb81194396b4547de26f);
+            
+        
+
+        marker_5d160324bf3e5437f271ed607e9aa313.bindPopup(popup_c5ce38efdd5062359e9e0020292e1c06)
+        ;
+
+        
+    
+    
+            marker_5d160324bf3e5437f271ed607e9aa313.bindTooltip(
+                `<div>
+                     Гиро
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5d160324bf3e5437f271ed607e9aa313.setIcon(icon_e11b35f867b3565c35b91e195fad963e);
+            
+    
+            var marker_a82576bd528ad98c8943a0be561414b0 = L.marker(
+                [44.210544, 43.140325],
+                {
+}
+            ).addTo(marker_cluster_ce9d70014002ece33fdd42e13566f931);
+        
+    
+            var icon_ae5fedc3a38ed2e09fe348d24afcc821 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_69fb683b4dbc6af2a50d814d00a9626e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8bc0535703bbd864c947d775c7c9a9b1 = $(`<div id="html_8bc0535703bbd864c947d775c7c9a9b1" style="width: 100.0%; height: 100.0%;"><b>Caffe_ine</b><br>Рейтинг: 4.0</div>`)[0];
+                popup_69fb683b4dbc6af2a50d814d00a9626e.setContent(html_8bc0535703bbd864c947d775c7c9a9b1);
+            
+        
+
+        marker_a82576bd528ad98c8943a0be561414b0.bindPopup(popup_69fb683b4dbc6af2a50d814d00a9626e)
+        ;
+
+        
+    
+    
+            marker_a82576bd528ad98c8943a0be561414b0.bindTooltip(
+                `<div>
+                     Caffe_ine
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a82576bd528ad98c8943a0be561414b0.setIcon(icon_ae5fedc3a38ed2e09fe348d24afcc821);
+            
+    
+            var marker_a996f707b4da67fdf531f923c6e833b0 = L.marker(
+                [44.211959, 43.139427],
+                {
+}
+            ).addTo(marker_cluster_ce9d70014002ece33fdd42e13566f931);
+        
+    
+            var icon_a06b3d5506a744a84883c7976789d7e9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_80cb7dadbcc1bf8c017a81b2dea94789 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3a42afe79476869cdea9e8067a4e5a9 = $(`<div id="html_b3a42afe79476869cdea9e8067a4e5a9" style="width: 100.0%; height: 100.0%;"><b>Вкусняшка</b><br>Рейтинг: 4.0</div>`)[0];
+                popup_80cb7dadbcc1bf8c017a81b2dea94789.setContent(html_b3a42afe79476869cdea9e8067a4e5a9);
+            
+        
+
+        marker_a996f707b4da67fdf531f923c6e833b0.bindPopup(popup_80cb7dadbcc1bf8c017a81b2dea94789)
+        ;
+
+        
+    
+    
+            marker_a996f707b4da67fdf531f923c6e833b0.bindTooltip(
+                `<div>
+                     Вкусняшка
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a996f707b4da67fdf531f923c6e833b0.setIcon(icon_a06b3d5506a744a84883c7976789d7e9);
+            
+    
+            var marker_a07779bb0205b5e38c263a3b976b3af8 = L.marker(
+                [44.21159, 43.139202],
+                {
+}
+            ).addTo(marker_cluster_ce9d70014002ece33fdd42e13566f931);
+        
+    
+            var icon_f6d7bb9a8acd4162e50d9cc2294a8c9c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_568d8e27d142febe184511904f9865aa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_586505b06bb53df8c8bd10577f734515 = $(`<div id="html_586505b06bb53df8c8bd10577f734515" style="width: 100.0%; height: 100.0%;"><b>КирХан</b><br>Рейтинг: 4.0</div>`)[0];
+                popup_568d8e27d142febe184511904f9865aa.setContent(html_586505b06bb53df8c8bd10577f734515);
+            
+        
+
+        marker_a07779bb0205b5e38c263a3b976b3af8.bindPopup(popup_568d8e27d142febe184511904f9865aa)
+        ;
+
+        
+    
+    
+            marker_a07779bb0205b5e38c263a3b976b3af8.bindTooltip(
+                `<div>
+                     КирХан
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a07779bb0205b5e38c263a3b976b3af8.setIcon(icon_f6d7bb9a8acd4162e50d9cc2294a8c9c);
+            
+    
+            marker_cluster_ce9d70014002ece33fdd42e13566f931.addTo(feature_group_04639cc63b0847362a7282ba7b42695b);
+        
+    
+            feature_group_04639cc63b0847362a7282ba7b42695b.addTo(map_94eff8311261bf094088da0e8fcd924f);
+        
+    
+            var feature_group_36d1ab7a862179df3b5e0c9bda86a47a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_2a85c070f5442ac08d97cb4c944eee9d = L.markerClusterGroup(
+                {
+}
+            );
+            marker_cluster_2a85c070f5442ac08d97cb4c944eee9d.options.iconCreateFunction =
+                function(cluster) {
+           return new L.DivIcon({
+               html: '<div style="background-color:#00008B;'
+                     + 'color:white;border-radius:50%;'
+                     + 'width:40px;height:40px;'
+                     + 'display:flex;align-items:center;justify-content:center;'
+                     + 'font-weight:bold;border:2px solid white;">'
+                     + cluster.getChildCount() + '</div>',
+               className: 'marker-cluster'
+           });
+       };
+        
+    
+            var marker_efa287fce993df9103d71dea13b3e67b = L.marker(
+                [44.210641, 43.142301],
+                {
+}
+            ).addTo(marker_cluster_2a85c070f5442ac08d97cb4c944eee9d);
+        
+    
+            var icon_af25d7f2780b524a04357ac3b3f46559 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_52f74bb4d23299543e272b252a84655f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_177e1aa6b101acbb8362dff3249d3bb7 = $(`<div id="html_177e1aa6b101acbb8362dff3249d3bb7" style="width: 100.0%; height: 100.0%;"><b>Гостиница Прометей</b><br>⭐ 3 звезды</div>`)[0];
+                popup_52f74bb4d23299543e272b252a84655f.setContent(html_177e1aa6b101acbb8362dff3249d3bb7);
+            
+        
+
+        marker_efa287fce993df9103d71dea13b3e67b.bindPopup(popup_52f74bb4d23299543e272b252a84655f)
+        ;
+
+        
+    
+    
+            marker_efa287fce993df9103d71dea13b3e67b.bindTooltip(
+                `<div>
+                     Гостиница Прометей
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_efa287fce993df9103d71dea13b3e67b.setIcon(icon_af25d7f2780b524a04357ac3b3f46559);
+            
+    
+            var marker_d70d0b0d1bb03a90b518b0233f01bbd8 = L.marker(
+                [44.199668, 43.123868],
+                {
+}
+            ).addTo(marker_cluster_2a85c070f5442ac08d97cb4c944eee9d);
+        
+    
+            var icon_0dd098c6d6260a43919129e2424fc7b9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f03b7615b5fc7290bfe2d38271eded32 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bbdb52a59a3dd60ff293b6f459b5d577 = $(`<div id="html_bbdb52a59a3dd60ff293b6f459b5d577" style="width: 100.0%; height: 100.0%;"><b>Гостиница Оазис</b><br>⭐ 3 звезды</div>`)[0];
+                popup_f03b7615b5fc7290bfe2d38271eded32.setContent(html_bbdb52a59a3dd60ff293b6f459b5d577);
+            
+        
+
+        marker_d70d0b0d1bb03a90b518b0233f01bbd8.bindPopup(popup_f03b7615b5fc7290bfe2d38271eded32)
+        ;
+
+        
+    
+    
+            marker_d70d0b0d1bb03a90b518b0233f01bbd8.bindTooltip(
+                `<div>
+                     Гостиница Оазис
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d70d0b0d1bb03a90b518b0233f01bbd8.setIcon(icon_0dd098c6d6260a43919129e2424fc7b9);
+            
+    
+            var marker_c19e673f319d8bc2ab1c883638f6c34b = L.marker(
+                [44.210111, 43.133435],
+                {
+}
+            ).addTo(marker_cluster_2a85c070f5442ac08d97cb4c944eee9d);
+        
+    
+            var icon_ad3de9a705d16e59359ac7b37a8018a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cdaf76f1641c345b86049cb4a70c45af = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dfa88e2672f8e2e27424585055abf725 = $(`<div id="html_dfa88e2672f8e2e27424585055abf725" style="width: 100.0%; height: 100.0%;"><b>Отель Кавказ</b><br>⭐ 3 звезды</div>`)[0];
+                popup_cdaf76f1641c345b86049cb4a70c45af.setContent(html_dfa88e2672f8e2e27424585055abf725);
+            
+        
+
+        marker_c19e673f319d8bc2ab1c883638f6c34b.bindPopup(popup_cdaf76f1641c345b86049cb4a70c45af)
+        ;
+
+        
+    
+    
+            marker_c19e673f319d8bc2ab1c883638f6c34b.bindTooltip(
+                `<div>
+                     Отель Кавказ
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c19e673f319d8bc2ab1c883638f6c34b.setIcon(icon_ad3de9a705d16e59359ac7b37a8018a4);
+            
+    
+            var marker_a9435efb95d991684127718e5083cbe1 = L.marker(
+                [44.225028, 43.137396],
+                {
+}
+            ).addTo(marker_cluster_2a85c070f5442ac08d97cb4c944eee9d);
+        
+    
+            var icon_398fccf6f5b51c8912d131e4c8698111 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bd6a8f00d3c2b18dcb7f65bcddd2af5c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b40b16af6123d17b7c560c40746aba03 = $(`<div id="html_b40b16af6123d17b7c560c40746aba03" style="width: 100.0%; height: 100.0%;"><b>Гостевой дом София</b><br>⭐ 3 звезды</div>`)[0];
+                popup_bd6a8f00d3c2b18dcb7f65bcddd2af5c.setContent(html_b40b16af6123d17b7c560c40746aba03);
+            
+        
+
+        marker_a9435efb95d991684127718e5083cbe1.bindPopup(popup_bd6a8f00d3c2b18dcb7f65bcddd2af5c)
+        ;
+
+        
+    
+    
+            marker_a9435efb95d991684127718e5083cbe1.bindTooltip(
+                `<div>
+                     Гостевой дом София
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a9435efb95d991684127718e5083cbe1.setIcon(icon_398fccf6f5b51c8912d131e4c8698111);
+            
+    
+            var marker_a87eb5ec28640e8d45f6cb3dff684af5 = L.marker(
+                [44.211416, 43.140055],
+                {
+}
+            ).addTo(marker_cluster_2a85c070f5442ac08d97cb4c944eee9d);
+        
+    
+            var icon_26b1817fdca0c856373f329c5ae7d9c5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4a3fdbbda656cf2ca83d13e9541b847b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2e633de260a254dba58b135bed28d79 = $(`<div id="html_d2e633de260a254dba58b135bed28d79" style="width: 100.0%; height: 100.0%;"><b>Сити & Бизнес Отель</b><br>⭐ 3 звезды</div>`)[0];
+                popup_4a3fdbbda656cf2ca83d13e9541b847b.setContent(html_d2e633de260a254dba58b135bed28d79);
+            
+        
+
+        marker_a87eb5ec28640e8d45f6cb3dff684af5.bindPopup(popup_4a3fdbbda656cf2ca83d13e9541b847b)
+        ;
+
+        
+    
+    
+            marker_a87eb5ec28640e8d45f6cb3dff684af5.bindTooltip(
+                `<div>
+                     Сити & Бизнес Отель
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a87eb5ec28640e8d45f6cb3dff684af5.setIcon(icon_26b1817fdca0c856373f329c5ae7d9c5);
+            
+    
+            var marker_4826dc9a74ab6a53af7c0c131fbee81b = L.marker(
+                [44.197891, 43.124721],
+                {
+}
+            ).addTo(marker_cluster_2a85c070f5442ac08d97cb4c944eee9d);
+        
+    
+            var icon_87d6e0536826aed053b34aa7b9ccd279 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_861cbc19bcdd8feaf2298ee420edd613 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bc9c6390eef1ab810ae9b7d7e705ac59 = $(`<div id="html_bc9c6390eef1ab810ae9b7d7e705ac59" style="width: 100.0%; height: 100.0%;"><b>Отель Астэри</b><br>⭐ 3 звезды</div>`)[0];
+                popup_861cbc19bcdd8feaf2298ee420edd613.setContent(html_bc9c6390eef1ab810ae9b7d7e705ac59);
+            
+        
+
+        marker_4826dc9a74ab6a53af7c0c131fbee81b.bindPopup(popup_861cbc19bcdd8feaf2298ee420edd613)
+        ;
+
+        
+    
+    
+            marker_4826dc9a74ab6a53af7c0c131fbee81b.bindTooltip(
+                `<div>
+                     Отель Астэри
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4826dc9a74ab6a53af7c0c131fbee81b.setIcon(icon_87d6e0536826aed053b34aa7b9ccd279);
+            
+    
+            marker_cluster_2a85c070f5442ac08d97cb4c944eee9d.addTo(feature_group_36d1ab7a862179df3b5e0c9bda86a47a);
+        
+    
+            feature_group_36d1ab7a862179df3b5e0c9bda86a47a.addTo(map_94eff8311261bf094088da0e8fcd924f);
+        
+    
+            var feature_group_ba4341df52a5b34c3b852de5d27b65f9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_35fc8b234e717ffaf6adc4feaf95aec0 = L.markerClusterGroup(
+                {
+}
+            );
+            marker_cluster_35fc8b234e717ffaf6adc4feaf95aec0.options.iconCreateFunction =
+                function(cluster) {
+           return new L.DivIcon({
+               html: '<div style="background-color:#5F9EA0;'
+                     + 'color:white;border-radius:50%;'
+                     + 'width:40px;height:40px;'
+                     + 'display:flex;align-items:center;justify-content:center;'
+                     + 'font-weight:bold;border:2px solid white;">'
+                     + cluster.getChildCount() + '</div>',
+               className: 'marker-cluster'
+           });
+       };
+        
+    
+            var marker_1265d16701db203ebf002ea82efa7785 = L.marker(
+                [44.217773, 43.087729],
+                {
+}
+            ).addTo(marker_cluster_35fc8b234e717ffaf6adc4feaf95aec0);
+        
+    
+            var icon_539c1329dd6d1b0ba5f9cfaabf07d18e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_398fc2c6eab0c3c29e97b404a122cbad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8a362e314bcb8a2539541aab03864fba = $(`<div id="html_8a362e314bcb8a2539541aab03864fba" style="width: 100.0%; height: 100.0%;"><b>Аэропорт Минеральные воды</b></div>`)[0];
+                popup_398fc2c6eab0c3c29e97b404a122cbad.setContent(html_8a362e314bcb8a2539541aab03864fba);
+            
+        
+
+        marker_1265d16701db203ebf002ea82efa7785.bindPopup(popup_398fc2c6eab0c3c29e97b404a122cbad)
+        ;
+
+        
+    
+    
+            marker_1265d16701db203ebf002ea82efa7785.bindTooltip(
+                `<div>
+                     Аэропорт Минеральные воды
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1265d16701db203ebf002ea82efa7785.setIcon(icon_539c1329dd6d1b0ba5f9cfaabf07d18e);
+            
+    
+            var marker_687c36792aae1a92d2f61dc23ce82a50 = L.marker(
+                [44.212753, 43.141017],
+                {
+}
+            ).addTo(marker_cluster_35fc8b234e717ffaf6adc4feaf95aec0);
+        
+    
+            var icon_b3eecdf4a636f285466145ced9d3e789 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d04a6240a630210c46e059b299cfd66e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca5c5c697d242d12dc54ea61c95c2852 = $(`<div id="html_ca5c5c697d242d12dc54ea61c95c2852" style="width: 100.0%; height: 100.0%;"><b>Ж/Д вокзал</b></div>`)[0];
+                popup_d04a6240a630210c46e059b299cfd66e.setContent(html_ca5c5c697d242d12dc54ea61c95c2852);
+            
+        
+
+        marker_687c36792aae1a92d2f61dc23ce82a50.bindPopup(popup_d04a6240a630210c46e059b299cfd66e)
+        ;
+
+        
+    
+    
+            marker_687c36792aae1a92d2f61dc23ce82a50.bindTooltip(
+                `<div>
+                     Ж/Д вокзал
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_687c36792aae1a92d2f61dc23ce82a50.setIcon(icon_b3eecdf4a636f285466145ced9d3e789);
+            
+    
+            var marker_4d4ed56589c3a602da68da3d6d2f1d74 = L.marker(
+                [44.208638, 43.121694],
+                {
+}
+            ).addTo(marker_cluster_35fc8b234e717ffaf6adc4feaf95aec0);
+        
+    
+            var icon_3e588019f2369d5a80f85ebbef66325a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_599862047e0c5b815b694d494df60831 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0fb5062965baaf31f4967519bd321d90 = $(`<div id="html_0fb5062965baaf31f4967519bd321d90" style="width: 100.0%; height: 100.0%;"><b>Автовокзал Минеральные Воды</b></div>`)[0];
+                popup_599862047e0c5b815b694d494df60831.setContent(html_0fb5062965baaf31f4967519bd321d90);
+            
+        
+
+        marker_4d4ed56589c3a602da68da3d6d2f1d74.bindPopup(popup_599862047e0c5b815b694d494df60831)
+        ;
+
+        
+    
+    
+            marker_4d4ed56589c3a602da68da3d6d2f1d74.bindTooltip(
+                `<div>
+                     Автовокзал Минеральные Воды
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4d4ed56589c3a602da68da3d6d2f1d74.setIcon(icon_3e588019f2369d5a80f85ebbef66325a);
+            
+    
+            var marker_d8eb7a3678caadd9eb639cad9dd5247c = L.marker(
+                [44.198783, 43.117975],
+                {
+}
+            ).addTo(marker_cluster_35fc8b234e717ffaf6adc4feaf95aec0);
+        
+    
+            var icon_c1a187fc79fd0de9323051f45d933e99 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7686e17d140aab9e235fa2b03de9d8e0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c8020017c671ab851a8500a48370285d = $(`<div id="html_c8020017c671ab851a8500a48370285d" style="width: 100.0%; height: 100.0%;"><b>Автовокзал Мин. Воды Новый</b></div>`)[0];
+                popup_7686e17d140aab9e235fa2b03de9d8e0.setContent(html_c8020017c671ab851a8500a48370285d);
+            
+        
+
+        marker_d8eb7a3678caadd9eb639cad9dd5247c.bindPopup(popup_7686e17d140aab9e235fa2b03de9d8e0)
+        ;
+
+        
+    
+    
+            marker_d8eb7a3678caadd9eb639cad9dd5247c.bindTooltip(
+                `<div>
+                     Автовокзал Мин. Воды Новый
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d8eb7a3678caadd9eb639cad9dd5247c.setIcon(icon_c1a187fc79fd0de9323051f45d933e99);
+            
+    
+            marker_cluster_35fc8b234e717ffaf6adc4feaf95aec0.addTo(feature_group_ba4341df52a5b34c3b852de5d27b65f9);
+        
+    
+            feature_group_ba4341df52a5b34c3b852de5d27b65f9.addTo(map_94eff8311261bf094088da0e8fcd924f);
+        
+    
+            var feature_group_1861e64927adb57e016e45ec541fa8ee = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var heat_map_9e4b1d9543b9300d2753894f76450e69 = L.heatLayer(
+                [[44.169306, 43.098203], [44.212209, 43.140721], [44.201252, 43.11669], [44.201879, 43.125393], [44.210135, 43.130943], [44.201032, 43.12473], [44.209597, 43.136186], [44.202551, 43.121604], [44.166255, 43.109945], [44.144568, 43.087598], [44.211416, 43.140055], [44.198499, 43.123392], [44.199778, 43.133893], [44.204496, 43.10609], [44.202279, 43.134549], [44.207475, 43.137091], [44.211503, 43.139553], [44.210544, 43.140325], [44.211959, 43.139427], [44.21159, 43.139202], [44.210641, 43.142301], [44.199668, 43.123868], [44.210111, 43.133435], [44.225028, 43.137396], [44.211416, 43.140055], [44.197891, 43.124721]],
+                {
+  "minOpacity": 0.3,
+  "maxZoom": 18,
+  "radius": 25,
+  "blur": 18,
+}
+            );
+        
+    
+            heat_map_9e4b1d9543b9300d2753894f76450e69.addTo(feature_group_1861e64927adb57e016e45ec541fa8ee);
+        
+    
+            var layer_control_5c90d3c5a64736a2e9b8c272b7e9c1b7_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_bc11cb55f2f9dd2d514e70f8b7998193,
+                    "openstreetmap" : tile_layer_a9ad795b209cd222cd2d8da02a7d06b1,
+                },
+                overlays :  {
+                    "\u0414\u043e\u0441\u0442\u043e\u043f\u0440\u0438\u043c\u0435\u0447\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438" : feature_group_191a770c3bf7bf702a0fb354e909ddc9,
+                    "\u041a\u0430\u0444\u0435 \u0438 \u0440\u0435\u0441\u0442\u043e\u0440\u0430\u043d\u044b" : feature_group_04639cc63b0847362a7282ba7b42695b,
+                    "\u041e\u0442\u0435\u043b\u0438" : feature_group_36d1ab7a862179df3b5e0c9bda86a47a,
+                    "\u0422\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442" : feature_group_ba4341df52a5b34c3b852de5d27b65f9,
+                    "\u041f\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u043d\u044b\u0445 \u043c\u0435\u0441\u0442" : feature_group_1861e64927adb57e016e45ec541fa8ee,
+                },
+            };
+            let layer_control_5c90d3c5a64736a2e9b8c272b7e9c1b7 = L.control.layers(
+                layer_control_5c90d3c5a64736a2e9b8c272b7e9c1b7_layers.base_layers,
+                layer_control_5c90d3c5a64736a2e9b8c272b7e9c1b7_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_94eff8311261bf094088da0e8fcd924f);
+
+        
+</script>
+</html>
