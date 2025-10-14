@@ -1,0 +1,425 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Достопримечательности",
+        "name": "Гора Змейка"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.098203,
+          44.169306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Достопримечательности",
+        "name": "Привокзальная площадь"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.140721,
+          44.212209
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Достопримечательности",
+        "name": "Площадь Победы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.11669,
+          44.201252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Достопримечательности",
+        "name": "Собор Покрова Пресвятой Богородицы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.125393,
+          44.201879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Достопримечательности",
+        "name": "Городской парк культуры и отдыха"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.130943,
+          44.210135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Достопримечательности",
+        "name": "Музей Морской и Воинской Славы"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.12473,
+          44.201032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Достопримечательности",
+        "name": "Аллея на проспекте им. Карла Маркса"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.136186,
+          44.209597
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Достопримечательности",
+        "name": "Музей писателя А. П. Бибика (Минераловодский краеведческий музей)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.121604,
+          44.202551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Достопримечательности",
+        "name": "Святой источник Архангела Михаила"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.109945,
+          44.166255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Достопримечательности",
+        "name": "Терский Конный Завод"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.087598,
+          44.144568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Кафе",
+        "name": "Уголь"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.140055,
+          44.211416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Кафе",
+        "name": "Roma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.123392,
+          44.198499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Кафе",
+        "name": "Сикварули"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.133893,
+          44.199778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Кафе",
+        "name": "У Ламары"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.10609,
+          44.204496
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Кафе",
+        "name": "Палермо"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.134549,
+          44.202279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Кафе",
+        "name": "Coffee sounds"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.137091,
+          44.207475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Кафе",
+        "name": "Гиро"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.139553,
+          44.211503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Кафе",
+        "name": "Caffe_ine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.140325,
+          44.210544
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Кафе",
+        "name": "Вкусняшка"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.139427,
+          44.211959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Кафе",
+        "name": "КирХан"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.139202,
+          44.21159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Отели",
+        "name": "Гостиница Прометей"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.142301,
+          44.210641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Отели",
+        "name": "Гостиница Оазис"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.123868,
+          44.199668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Отели",
+        "name": "Отель Кавказ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.133435,
+          44.210111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Отели",
+        "name": "Гостевой дом София"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.137396,
+          44.225028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Отели",
+        "name": "Сити & Бизнес Отель"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.140055,
+          44.211416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Отели",
+        "name": "Отель Астэри"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.124721,
+          44.197891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Транспорт",
+        "name": "Аэропорт Минеральные воды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.087729,
+          44.217773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Транспорт",
+        "name": "Ж/Д вокзал"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.141017,
+          44.212753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Транспорт",
+        "name": "Автовокзал Минеральные Воды"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.121694,
+          44.208638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "category": "Транспорт",
+        "name": "Автовокзал Мин. Воды Новый"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.117975,
+          44.198783
+        ]
+      }
+    }
+  ]
+}
